@@ -1,5 +1,5 @@
 import { DataTypes, Model } from "sequelize";
-import { sequelize } from "../src/connection.js";
+import { sequelize } from "./connection.js";
 class User extends Model {
 }
 User.init({
@@ -20,6 +20,6 @@ User.init({
 export async function getData() {
     // the defined model is the class itself
     const users = await User.findAll();
-    console.log("All users:", JSON.stringify(users, null, 2));
+    //   console.log("All users:", JSON.stringify(users, null, 2));
     return users;
 }
