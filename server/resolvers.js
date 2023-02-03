@@ -2,7 +2,7 @@ import { getData } from "../models/User.js";
 import { getAuthors, getAuthor, createAuthor, updateAuthor, deleteAuthor, getMovie, getMovies, createMovie, updateMovie, deleteMovie, getActor, getActors, createActor, updateActor, deleteActor, } from "../services/index.js";
 export const resolvers = {
     Query: {
-        greeting: () => "Hello GraphQL world!👋",
+        greeting: () => "Hello GraphQL world!👋 By Adi Nurrahman",
         getData: async () => await getData(),
         getAuthors: async () => await getAuthors(),
         async getAuthor(parent, args, contextValue, info) {
