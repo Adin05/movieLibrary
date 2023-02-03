@@ -18,7 +18,7 @@ import {
 } from "../services/index.js";
 export const resolvers = {
   Query: {
-    greeting: () => "Hello GraphQL world!👋", //example
+    greeting: () => "Hello GraphQL world!👋 By Adi Nurrahman", //example
     getData: async () => await getData(), //example
 
     getAuthors: async () => await getAuthors(),
