@@ -1,8 +1,7 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 import { getData } from '../models/User.js'
-import { getAuthors, getAuthor } from '../services/list.js'
-import { createAuthor } from '../services/create.js';
+import { getAuthors, getAuthor, createAuthor, updateAuthor } from '../services/index.js'
 
 const typeDefs = `#graphql
   type User {
@@ -36,6 +35,8 @@ const typeDefs = `#graphql
 
   type Mutation {
     addAuthor(authorName: String): Author
+    editAuthor(id:Int, authorName: String): String
+
   }
 `;
 
@@ -53,7 +54,12 @@ const resolvers = {
       const x = await createAuthor(args.authorName);
       console.log(args.authorName, x);
       return x;
-    }
+    },
+    async editAuthor(parent: any, args: any, contextValue: any, info: any){
+      const x = await updateAuthor(args.id, args.authorName);
+      console.log(args.authorName, x);
+      return x;
+    },
   }
 };
 
