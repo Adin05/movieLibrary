@@ -1,4 +1,4 @@
-import { Author } from "../models/index.js";
+import { Author } from "../../models/index.js";
 
 export async function createAuthor(authorName: string) {
   // Create a new user
@@ -7,7 +7,6 @@ export async function createAuthor(authorName: string) {
       authorName: authorName,
     }
   );
-  console.log("data:", author);
   return {
     authorName: author.authorName
   };

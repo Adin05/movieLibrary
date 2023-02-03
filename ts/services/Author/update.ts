@@ -1,4 +1,4 @@
-import { Author } from "../models/index.js";
+import { Author } from "../../models/index.js";
 
 export async function updateAuthor(id:number, authorName: string) {
   // Create a new user

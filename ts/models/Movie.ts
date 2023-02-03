@@ -11,6 +11,9 @@ export class Movie extends Model {}
     movieName: {
       type: DataTypes.STRING,
     },
+    authorID: {
+      type: DataTypes.INTEGER,
+    },
   },
   {
     // Other model options go here

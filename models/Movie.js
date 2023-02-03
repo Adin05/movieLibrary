@@ -7,6 +7,9 @@ Movie.init({
     movieName: {
         type: DataTypes.STRING,
     },
+    authorID: {
+        type: DataTypes.INTEGER,
+    },
 }, {
     // Other model options go here
     sequelize,
