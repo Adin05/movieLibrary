@@ -2,6 +2,7 @@ import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 import { getData } from '../models/User.js';
 import { getAuthors, getAuthor } from '../services/list.js';
+import { createAuthor } from '../services/create.js';
 const typeDefs = `#graphql
   type User {
     firstName: String
@@ -15,13 +16,13 @@ const typeDefs = `#graphql
 
   type Movie {
     id: Int
-    movie_name: String
+    movieName: String
     authorId: Int
   }
 
   type Actor {
     id: Int
-    actor_name: String
+    actorName: String
     movieId: Int
   }
 
@@ -33,7 +34,7 @@ const typeDefs = `#graphql
   }
 
   type Mutation {
-    addAuthor(title: String, author: String): Author
+    addAuthor(authorName: String): Author
   }
 `;
 const resolvers = {
@@ -41,17 +42,17 @@ const resolvers = {
         greeting: () => "Hello GraphQL world!👋",
         getData: async () => await getData(),
         getAuthors: async () => await getAuthors(),
-        // getAuthor: async (_parent, args, _contextValue) => await getAuthor(args.id) ,
         async getAuthor(parent, args, contextValue, info) {
             return await getAuthor(args.id);
-        },
-        // addAuthor(title: "Fox in Socks", author: "Dr. Seuss") {
-        //   title
-        //   author {
-        //     author_name
-        //   }
-        // }
+        }
     },
+    Mutation: {
+        async addAuthor(parent, args, contextValue, info) {
+            const x = await createAuthor(args.authorName);
+            console.log(args.authorName, x);
+            return x;
+        }
+    }
 };
 const server = new ApolloServer({ typeDefs, resolvers });
 export async function startServer() {
