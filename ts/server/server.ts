@@ -14,11 +14,27 @@ const typeDefs = `#graphql
     author_name: String
   }
 
+  type Movie {
+    id: Int
+    movie_name: String
+    authorId: Int
+  }
+
+  type Actor {
+    id: Int
+    actor_name: String
+    movieId: Int
+  }
+
   type Query {
     greeting: String
     getData: [User]
     getAuthors: [Author]
     getAuthor(id: Int): Author
+  }
+
+  type Mutation {
+    addAuthor(title: String, author: String): Author
   }
 `;
 
@@ -31,6 +47,12 @@ const resolvers = {
     async getAuthor(parent: any, args: { id: number; }, contextValue: any, info: any) {
       return await getAuthor(args.id);
     },
+    // addAuthor(title: "Fox in Socks", author: "Dr. Seuss") {
+    //   title
+    //   author {
+    //     author_name
+    //   }
+    // }
   },
 };
 
