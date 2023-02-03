@@ -7,7 +7,7 @@ export class Actor extends Model {}
  Actor.init(
   {
     // Model attributes are defined here
-    actor_name: {
+    actorName: {
       type: DataTypes.STRING,
     },
   },

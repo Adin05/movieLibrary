@@ -4,7 +4,7 @@ export class Movie extends Model {
 }
 Movie.init({
     // Model attributes are defined here
-    movie_name: {
+    movieName: {
         type: DataTypes.STRING,
     },
 }, {

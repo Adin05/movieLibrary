@@ -11,7 +11,7 @@ const typeDefs = `#graphql
 
   type Author {
     id: Int
-    author_name: String
+    authorName: String
   }
 
   type Query {
