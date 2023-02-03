@@ -1,0 +1,38 @@
+Create Database "MovieLibraryDb";
+
+Create Table "Authors" (
+	id serial primary key,
+	"authorName" varchar(100),
+	"createdAt" date,
+	"updatedAt" date
+);
+Create Table "Movies" (
+	id serial primary key,
+	"movieName" varchar(100),
+	"authorID" integer,
+	"createdAt" date,
+	"updatedAt" date
+);
+
+Create Table "Actors" (
+	id serial primary key,
+	"actorName" varchar(100),
+	"createdAt" date,
+	"updatedAt" date
+);
+
+Create Table "MovieActors" (
+	"movieID" integer,
+	"actorID" integer,
+	"createdAt" date,
+	"updatedAt" date,
+	primary key("movieID","actorID")
+);
+
+Create Table "Users" (
+	id serial primary key,
+	"firstName" varchar(100),
+	"lastName" varchar(100),
+	"createdAt" date,
+	"updatedAt" date
+)

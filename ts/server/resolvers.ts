@@ -10,6 +10,11 @@ import {
   createMovie,
   updateMovie,
   deleteMovie,
+  getActor,
+  getActors,
+  createActor,
+  updateActor,
+  deleteActor,
 } from "../services/index.js";
 export const resolvers = {
   Query: {
@@ -35,6 +40,16 @@ export const resolvers = {
     ) {
       return await getMovie(args.id);
     },
+
+    getActors: async () => await getActors(),
+    async getActor(
+      parent: any,
+      args: { id: number },
+      contextValue: any,
+      info: any
+    ) {
+      return await getActor(args.id);
+    },
   },
   Mutation: {
     async addAuthor(parent: any, args: any, contextValue: any, info: any) {
@@ -59,6 +74,18 @@ export const resolvers = {
     },
     async deleteMovie(parent: any, args: any, contextValue: any, info: any) {
       return await deleteMovie(args.id);
+    },
+
+    async addActor(parent: any, args: any, contextValue: any, info: any) {
+      const x = await createActor(args.actorName);
+      console.log(args.actorName, x);
+      return x;
+    },
+    async editActor(parent: any, args: any, contextValue: any, info: any) {
+      return await updateActor(args.id, args.actorName);
+    },
+    async deleteActor(parent: any, args: any, contextValue: any, info: any) {
+      return await deleteActor(args.id);
     },
   },
 };

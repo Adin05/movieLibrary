@@ -19,7 +19,6 @@ type Movie {
 type Actor {
   id: Int
   actorName: String
-  movieId: Int
 }
 
 type Query {
@@ -30,6 +29,9 @@ type Query {
 
   getMovies: [Movie]
   getMovie(id: Int): Movie
+
+  getActors: [Actor]
+  getActor(id: Int): Actor
 }
 
 type Mutation {
@@ -40,5 +42,9 @@ type Mutation {
   addMovie(movieName: String, authorID: Int): Movie
   editMovie(id:Int, movieName: String): String
   deleteMovie(id:Int): String
+
+  addActor(actorName: String): Actor
+  editActor(id:Int, actorName: String): String
+  deleteActor(id:Int): String
 }
 `;

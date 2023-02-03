@@ -12,6 +12,13 @@ import {
   updateMovie,
   deleteMovie,
 } from "./Movie/index.js";
+import {
+  getActor,
+  getActors,
+  createActor,
+  updateActor,
+  deleteActor,
+} from "./Actor/index.js";
 
 export {
   getAuthor,
@@ -24,4 +31,9 @@ export {
   createMovie,
   updateMovie,
   deleteMovie,
+  getActor,
+  getActors,
+  createActor,
+  updateActor,
+  deleteActor,
 };
