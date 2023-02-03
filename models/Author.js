@@ -4,7 +4,7 @@ export class author extends Model {
 }
 author.init({
     // Model attributes are defined here
-    author_name: {
+    authorName: {
         type: DataTypes.STRING,
     },
 }, {
